@@ -10,20 +10,40 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>lib-srv</name>
 
+	<!-- Dùng Spring Boot BOM để auto quản lý version -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.3.2</version>
+	</parent>
+
 	<properties>
 		<java.version>17</java.version>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
 
+	<!-- Publish library lên GitHub Packages -->
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Lib Srv Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/nguyenduc3701/lib-srv</url>
+		</repository>
+	</distributionManagement>
+
 	<dependencies>
 
-		<!-- Test -->
+		<!-- Spring Core (StringUtils) -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+
+		<!-- Spring Data Commons (Page, PageRequest, Sort...) -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
 		</dependency>
 
 		<!-- Lombok -->
@@ -74,6 +94,20 @@
 			<version>2.17.2</version>
 		</dependency>
 
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>4.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -87,6 +121,8 @@
 				<configuration>
 					<source>17</source>
 					<target>17</target>
+
+					<!-- Lombok annotation processor -->
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
