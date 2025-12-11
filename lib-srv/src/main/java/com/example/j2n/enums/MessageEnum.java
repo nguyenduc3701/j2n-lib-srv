@@ -38,7 +38,8 @@ public enum MessageEnum {
     INTERNAL_ERROR("500500", HttpStatusCode.INTERNAL_SERVER_ERROR, "Internal server error"),
     DATABASE_CONNECTION_ERROR("500501", HttpStatusCode.INTERNAL_SERVER_ERROR, "Database connection error"),
     SERVICE_UNAVAILABLE("500502", HttpStatusCode.INTERNAL_SERVER_ERROR, "Service unavailable"),
-    TIMEOUT_ERROR("500503", HttpStatusCode.INTERNAL_SERVER_ERROR, "Request timeout");
+    SERVICE_NOT_RECOGNIZED("500503", HttpStatusCode.INTERNAL_SERVER_ERROR, "Service not recognized"),
+    TIMEOUT_ERROR("500504", HttpStatusCode.INTERNAL_SERVER_ERROR, "Request timeout");
 
     private final String code;
     private final HttpStatusCode httpStatus;
